@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/style.css";
-
-const formRef = document.querySelector(".form");
+import { formRef } from "./refs";
+import { saveData } from "./api";
 
 formRef.addEventListener("submit", formData);
 
@@ -11,7 +11,7 @@ function formData(event) {
   if (!value) return;
 
   const data = createDataObj(value);
-
+  saveData(data);
   event.target.reset();
 }
 
